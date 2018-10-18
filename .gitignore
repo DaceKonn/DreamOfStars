@@ -418,3 +418,6 @@ Source/Code/ProjectPlugins.v12.suo
 /NuGet.Core.dll
 /OpenAL32.dll
 /Data/desktop.ini
+/LibGit2Sharp.dll
+/LibGit2Sharp.xml
+/Plugins/*
