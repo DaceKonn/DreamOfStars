@@ -1,6 +1,7 @@
-﻿using DreamOfStars.Singletons;
+﻿using DreamOfStars.Events;
 using Duality;
 using Duality.Resources;
+using EventsEngine.Singletons;
 using SnowyPeak.Duality.Plugins.YAUI;
 using SnowyPeak.Duality.Plugins.YAUI.Controls;
 using System;
@@ -42,7 +43,7 @@ namespace DreamOfStars.UserInterface
 
         private void StartNewGame()
         {
-            MainGameManager.InitNewGame(NewGameScene);
+            EventsDispatcher.NonLockingDispatch<StartNewGameEvent>(new StartNewGameEvent(NewGameScene));
         }
     }
 }

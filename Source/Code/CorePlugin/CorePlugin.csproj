@@ -22,8 +22,9 @@
     <AssemblyName>GamePlugin.core</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Profile75</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -64,7 +65,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CorePlugin.cs" />
-    <Compile Include="Singletons\MainGameManager.cs" />
+    <Compile Include="Events\StartNewGameEvent.cs" />
+    <Compile Include="IEvent.cs" />
+    <Compile Include="Systems\EventEngine.cs" />
+    <Compile Include="Systems\MainGameManager.cs" />
     <Compile Include="UserInterface\MainMenuUI.cs" />
     <Compile Include="UserInterface\MyButtons.cs" />
     <Compile Include="YourCustomComponentType.cs" />
