@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "CorePlugin": {
+      "commandName": "Executable",
+      "executablePath": "C:\\repo\\DreamOfStars\\DreamOfStars\\DualityLauncher.exe",
+      "workingDirectory": "C:\\repo\\DreamOfStars\\DreamOfStars\\..\\.."
+    }
+  }
+}

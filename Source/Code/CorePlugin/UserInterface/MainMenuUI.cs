@@ -1,23 +1,31 @@
 ﻿using DreamOfStars.Events;
+using DreamOfStars.Systems;
 using Duality;
 using Duality.Resources;
-using EventsEngine.Singletons;
+using Singularity;
 using SnowyPeak.Duality.Plugins.YAUI;
 using SnowyPeak.Duality.Plugins.YAUI.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DreamOfStars.UserInterface
 {
     public sealed class MainMenuUI : UI
     {
+        IEventsDispatcher _eventsDispatcher { get; set; }
+        IStateManager _stateManager { get; set; }
+
         public ContentRef<Scene> NewGameScene { get; set; }
+
+        [Inject]
+        public void Inject(IEventsDispatcher eventsDispatcher, IStateManager stateManager)
+        {
+            _eventsDispatcher = eventsDispatcher;
+            _stateManager = stateManager;
+        }
 
         protected override ControlsContainer CreateUI()
         {
+            _stateManager = DreamOfStarsCorePlugin._singularityAdapter.Container.GetInstance<IStateManager>();
+
             this.IsFullScreen = true;
             DockPanel root = new DockPanel()
             {
@@ -34,6 +42,14 @@ namespace DreamOfStars.UserInterface
             };
 
             MyButtons.CreateButtonInContainer("New Game", stackV, () => StartNewGame());
+            var slotNumbers = _stateManager.GetSaveSlotsNumbers();
+
+            foreach (var slot in slotNumbers)
+            {
+                MyButtons.CreateButtonInContainer($"Load Game Slot {slot}", stackV, () => LoadSelectedGameSlot(slot));
+            }
+
+
             MyButtons.CreateButtonInContainer("Exit", stackV, () => DualityApp.Terminate());
             
             root.Add(stackV);
@@ -43,7 +59,12 @@ namespace DreamOfStars.UserInterface
 
         private void StartNewGame()
         {
-            EventsDispatcher.NonLockingDispatch<StartNewGameEvent>(new StartNewGameEvent(NewGameScene));
+            _eventsDispatcher.NonLockingDispatch<StartNewGameEvent>(new StartNewGameEvent(NewGameScene));
+        }
+
+        private void LoadSelectedGameSlot(int slot)
+        {
+            _eventsDispatcher.NonLockingDispatch<LoadSelectedGameSlotEvent>(new LoadSelectedGameSlotEvent(slot));
         }
     }
 }
