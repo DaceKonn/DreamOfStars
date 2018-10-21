@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorePlugin", "CorePlugin\CorePlugin.csproj", "{AFE883F3-72B4-4C7C-A1D1-44EDC09C8F6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsEngine", "EventsEngine\EventsEngine.csproj", "{9248E58A-17AA-4DEB-B259-CFE6E672D1B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,8 +17,15 @@ Global
 		{AFE883F3-72B4-4C7C-A1D1-44EDC09C8F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFE883F3-72B4-4C7C-A1D1-44EDC09C8F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFE883F3-72B4-4C7C-A1D1-44EDC09C8F6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9248E58A-17AA-4DEB-B259-CFE6E672D1B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9248E58A-17AA-4DEB-B259-CFE6E672D1B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9248E58A-17AA-4DEB-B259-CFE6E672D1B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9248E58A-17AA-4DEB-B259-CFE6E672D1B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B95A0708-2623-4510-BD86-D4E579F2752B}
 	EndGlobalSection
 EndGlobal
