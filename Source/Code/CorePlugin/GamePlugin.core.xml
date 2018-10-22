@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GamePlugin.core</name>
+    </assembly>
+    <members>
+        <member name="T:DreamOfStars.DreamOfStarsCorePlugin">
+            <summary>
+            Defines a Duality core plugin.
+            </summary>
+        </member>
+        <member name="M:DreamOfStars.Systems.Implementation.EventsDispatcher.NonLockingDispatch``1(``0)">
+            <summary>
+            This dispatch will use Dispatch method but in a seperate Task without waiting for result,
+            use with caution, possibly only with sending events from UI
+            </summary>
+            <typeparam name="TEvent"></typeparam>
+            <param name="event"></param>
+        </member>
+    </members>
+</doc>

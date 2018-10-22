@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GitPlugin.editor</name>
+    </assembly>
+    <members>
+        <member name="T:RockyTV.GitPlugin.Editor.DualityGitEditorPlugin">
+            <summary>
+            Defines a Duality editor plugin.
+            </summary>
+        </member>
+        <member name="F:RockyTV.GitPlugin.Editor.Forms.CommitDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:RockyTV.GitPlugin.Editor.Forms.CommitDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:RockyTV.GitPlugin.Editor.Forms.CommitDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:RockyTV.GitPlugin.Editor.Properties.GitRes">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:RockyTV.GitPlugin.Editor.Properties.GitRes.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:RockyTV.GitPlugin.Editor.Properties.GitRes.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:RockyTV.GitPlugin.Editor.Properties.GitRes.MenuItemName_GitCommit">
+            <summary>
+              Looks up a localized string similar to Commit.
+            </summary>
+        </member>
+        <member name="P:RockyTV.GitPlugin.Editor.Properties.GitRes.MenuItemName_GitSettings">
+            <summary>
+              Looks up a localized string similar to Settings.
+            </summary>
+        </member>
+        <member name="T:RockyTV.GitPlugin.Editor.Properties.GitResNames">
+            <summary>
+            This static class contains constant string representations of certain resource names.
+            </summary>
+        </member>
+        <member name="T:RockyTV.GitPlugin.Editor.PluginUserData">
+            Defines a persistent class used for saving user data.
+        </member>
+        <member name="P:RockyTV.GitPlugin.Editor.PluginUserData.AutoFetchConfig">
+            <summary>
+            Automatically retrieve author name and email from global git settings.
+            </summary>
+        </member>
+        <member name="P:RockyTV.GitPlugin.Editor.PluginUserData.AuthorName">
+            <summary>
+            Author information.
+            Specify the name of the author that is shown in the commit history.
+            </summary>
+        </member>
+        <member name="P:RockyTV.GitPlugin.Editor.PluginUserData.AuthorEmail">
+            <summary>
+            Author information.
+            Specify the email of the author that is shown in the commit history. 
+            </summary>
+        </member>
+        <member name="P:RockyTV.GitPlugin.Editor.PluginUserData.UsefulLogMessages">
+            <summary>
+            Specify whether to print messages like "nothing to commit" to output.
+            This does not apply to exceptions.
+            </summary>
+        </member>
+    </members>
+</doc>
