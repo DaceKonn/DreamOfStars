@@ -1,18 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using DreamOfStars.Containers;
+using DreamOfStars.Containers.Modules;
 using DreamOfStars.Systems;
 using Duality;
 
 namespace DreamOfStars
 {
+    public delegate void OnGameStart();
+
     /// <summary>
     /// Defines a Duality core plugin.
     /// </summary>
     public class DreamOfStarsCorePlugin : CorePlugin
     {
-        private MainGameManager _mainGameManager { get; set; }
+        public static event OnGameStart OnGameStartEvent;
+        private readonly IMainGameManager _mainGameManager;
+        private readonly IStateManager _stateManager;
+        public static SingularityAdapter _singularityAdapter;
+
+        public DreamOfStarsCorePlugin()
+        {
+            _singularityAdapter = new SingularityAdapter();
+
+            _singularityAdapter
+                .RegisterModule(new HelperModule())
+                .RegisterModule(new RepositoryModule())
+                .RegisterModule(new SystemModule())
+                .InitializeContainer();
+
+            _mainGameManager = _singularityAdapter.Container.GetInstance<IMainGameManager>();
+            _stateManager = _singularityAdapter.Container.GetInstance<IStateManager>();
+        }
+
         // Override methods here for global logic
         protected override void OnGameEnded()
         {
@@ -21,8 +39,8 @@ namespace DreamOfStars
 
         protected override void OnGameStarting()
         {
-            _mainGameManager = new MainGameManager();
             base.OnGameStarting();
+            OnGameStartEvent();
         }
     }
 }

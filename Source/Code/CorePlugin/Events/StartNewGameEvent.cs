@@ -1,6 +1,5 @@
 ﻿using Duality;
 using Duality.Resources;
-using EventsEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
