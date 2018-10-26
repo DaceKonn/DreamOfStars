@@ -163,7 +163,7 @@
     </DockWindow>
   </DockWindows>
   <FloatWindows Count="2">
-    <FloatWindow ID="0" Bounds="550, 595, 300, 300" ZOrderIndex="0">
+    <FloatWindow ID="0" Bounds="550, 468, 300, 300" ZOrderIndex="0">
       <NestedPanes Count="1">
         <Pane ID="0" RefID="1" PrevPane="-1" Alignment="Right" Proportion="0.5" />
       </NestedPanes>
