@@ -59,12 +59,12 @@ namespace DreamOfStars.UserInterface
 
         private void StartNewGame()
         {
-            _eventsDispatcher.NonLockingDispatch<StartNewGameEvent>(new StartNewGameEvent(NewGameScene));
+            _eventsDispatcher.Dispatch<StartNewGameEvent>(new StartNewGameEvent(NewGameScene));
         }
 
         private void LoadSelectedGameSlot(int slot)
         {
-            _eventsDispatcher.NonLockingDispatch<LoadSelectedGameSlotEvent>(new LoadSelectedGameSlotEvent(slot));
+            _eventsDispatcher.Dispatch<LoadSelectedGameSlotEvent>(new LoadSelectedGameSlotEvent(slot));
         }
     }
 }
