@@ -14,31 +14,13 @@ namespace DreamOfStars.Components
         private TilemapRenderer _tilemapRenderer;
         private IGenericStateRepository<GridState> _gridRepository;
 
-        private int _gridId = 0;
-        private GridState _gridState;
-        private GridState GridState
-        {
-            get
-            {
-                if (_gridState != null)
-                {
-                    return _gridState;
-                }
-                else if (_gridId > 0)
-                {
-                    _gridState = _gridRepository.GetState(_gridId);
-                }
-
-                _gridState = _gridRepository.NewState();
-                _gridId = _gridState.Id;
-                return _gridState;
-            }
-        }
+        private ProvidedState<GridState> _gridState;
 
         [Inject]
         public void Inject(IGenericStateRepository<GridState> gridRepository)
         {
             _gridRepository = gridRepository;
+            _gridState = new ProvidedState<GridState>(_gridRepository);
         }
 
         public void OnInit(InitContext context)

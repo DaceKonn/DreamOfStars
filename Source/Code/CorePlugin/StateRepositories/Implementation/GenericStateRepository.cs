@@ -22,6 +22,7 @@ namespace DreamOfStars.StateRepositories.Implementation
 
         public GenericStateRepository(IEventsDispatcher eventsDispatcher)
         {
+            Inject(eventsDispatcher);
             _repository = new Dictionary<int, T>();
         }
 
