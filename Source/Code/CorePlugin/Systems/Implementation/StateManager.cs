@@ -94,6 +94,7 @@ namespace DreamOfStars.Systems.Implementation
             
 
             InnerStatesContainer = JsonConvert.DeserializeObject<StatesContainer>(serialized, settings);
+            InnerStatesContainer.MethodInjectRepositoryDependecies();
             Log.Game.Write($"Load game state from file [{GetSaveFileName(_saveSlot)}]");
             Log.Game.Write(InnerStatesContainer.ToString());
         }

@@ -1,6 +1,7 @@
 ﻿using DreamOfStars.StateRepositories;
 using DreamOfStars.StateRepositories.Implementation;
 using DreamOfStars.States;
+using DreamOfStars.Systems;
 using Singularity;
 using Singularity.Bindings;
 
@@ -13,9 +14,9 @@ namespace DreamOfStars.Containers.Modules
             BindRepository<GridState>(bindingConfig);
         }
 
-        private void BindRepository<T>(BindingConfig bindingConfig) where T : AbstractState
+        private void BindRepository<T>(BindingConfig bindingConfig) where T : AbstractState, new()
         {
-            bindingConfig.For<IGenericStateRepository<T>>().Inject<GenericStateRepository<T>>(() => new GenericStateRepository<T>()).With(Lifetime.PerContainer);
+            bindingConfig.For<IGenericStateRepository<T>>().Inject((IEventsDispatcher eventsDispatcher) => new GenericStateRepository<T>(eventsDispatcher)).With(Lifetime.PerContainer);
         }
     }
 }

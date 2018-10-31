@@ -1,13 +1,14 @@
-﻿using DreamOfStars.States;
+﻿using DreamOfStars.Events.RepositoryEvents;
+using DreamOfStars.States;
 using DreamOfStars.Systems;
 using Newtonsoft.Json;
 using Singularity;
 using System.Collections.Generic;
-
+using System.Linq;
 
 namespace DreamOfStars.StateRepositories.Implementation
 {
-    public class GenericStateRepository<T> : IGenericStateRepository<T> where T : AbstractState
+    public class GenericStateRepository<T> : IGenericStateRepository<T> where T : AbstractState, new()
     {
         
         private Dictionary<int, T> _repository { get; set; }
@@ -51,9 +52,18 @@ namespace DreamOfStars.StateRepositories.Implementation
             }
         }
 
-        public GridState NewState()
+        public T NewState()
         {
-            throw new System.NotImplementedException();
+            int maxId = _repository.Max(x => x.Value.Id);
+            int newId = maxId + 1;
+
+            var newState = new T();
+            newState.Id = newId;
+            _repository.Add(newId, newState);
+
+            _eventsDispatcher.Dispatch<NewStateEvent<T>>(new NewStateEvent<T>(newId));
+
+            return newState;
         }
     }
 }

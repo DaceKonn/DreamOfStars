@@ -8,6 +8,6 @@ namespace DreamOfStars.StateRepositories
         //void LoadState(string saveLocation);
         //void SaveState(string saveLocation);
         void UpdateState(T state);
-        GridState NewState();
+        T NewState();
     }
 }
