@@ -1,5 +1,7 @@
 ﻿using DreamOfStars.States;
+using DreamOfStars.Systems;
 using Newtonsoft.Json;
+using Singularity;
 using System.Collections.Generic;
 
 
@@ -9,8 +11,15 @@ namespace DreamOfStars.StateRepositories.Implementation
     {
         
         private Dictionary<int, T> _repository { get; set; }
+        private IEventsDispatcher _eventsDispatcher { get; set; }
 
-        public GenericStateRepository()
+        [Inject]
+        public void Inject(IEventsDispatcher eventsDispatcher)
+        {
+            _eventsDispatcher = eventsDispatcher;
+        }
+
+        public GenericStateRepository(IEventsDispatcher eventsDispatcher)
         {
             _repository = new Dictionary<int, T>();
         }
@@ -40,6 +49,11 @@ namespace DreamOfStars.StateRepositories.Implementation
             {
                 _repository.Add(state.Id, state);
             }
+        }
+
+        public GridState NewState()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
